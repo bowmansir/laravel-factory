@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('show', 'User\UserController@show');
+
+Route::get('index/{companyName}/{weight}', 'User\UserController@index');

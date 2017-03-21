@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Services\LogisticsFactory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
@@ -19,4 +20,11 @@ class UserController extends Controller
     {
         $this->userService->show('admin');
     }
+
+    public function index($companyName, $weight)
+    {
+        $logistics = LogisticsFactory::create($companyName);
+        return $logistics->calculaterFee($weight);
+    }
+    
 }
